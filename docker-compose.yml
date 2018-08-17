@@ -1,0 +1,15 @@
+version: "2"
+
+services:
+  gitlabrunner:
+    build: .
+    # image: gitlab/gitlab-runner:latest
+    container_name: "${PROJECT_NAME}"
+    volumes:
+     - ./config:/etc/gitlab-runner:cached
+     - ./certs:/etc/certs/cbs
+    labels:
+      - 'traefik.backend=gitlabrunner'
+      - 'traefik.port=80'
+      - 'traefik.frontend.rule=Host:gitlab.${PROJECT_BASE_URL}'
+     

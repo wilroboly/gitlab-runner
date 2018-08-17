@@ -1,0 +1,23 @@
+concurrent = 1
+check_interval = 0
+
+[[runners]]
+  name = "DockerRunner"
+  url = "https://gitlab.bloodservices.ca/"
+  token = "9a87e7065df1d03df925c3788bda09"
+  executor = "docker"
+  [runners.docker]
+    tls_verify = false
+    image = "docker:stable"
+    privileged = false
+    disable_cache = false
+    volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]
+    shm_size = 0
+  [runners.cache]
+
+[[runners]]
+  name = "Shellrunner"
+  url = "https://gitlab.bloodservices.ca/"
+  token = "5e0446d280a2235d2430320602381b"
+  executor = "shell"
+  [runners.cache]
