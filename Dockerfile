@@ -5,18 +5,9 @@ USER root
 
 # Please have a PEM file or ca-bundle stored in this location
 RUN apt-get update
-# RUN apt-get install ca-certificates
-# RUN ln -s /etc/certs/cbs/Certificates.pem /usr/local/share/ca-certificates/cacerts.crt
-# RUN /usr/sbin/update-ca-certificates
-#
-# # Install packages
-# RUN apk add --no-cache --update gcc g++ nodejs python openssh-client
-#
-# # Install node packages
-# RUN npm install --global gulp gulp-cli grunt webpack yarn bower sass
-#
-# # Setup for ssh onto gitlab.com
-# ADD ./ssh-keys/id_rsa /home/wodby/.ssh/id_rsa
-# RUN chmod 700 /home/wodby/.ssh/id_rsa
-# RUN chown wodby:wodby /home/wodby/.ssh/id_rsa
-# RUN ssh-keyscan gitlab.com > /home/wodby/.ssh/known_hosts
+
+# https://docs.gitlab.com/runner/configuration/tls-self-signed.html#supported-options-for-self-signed-certificates
+
+# If the address of your server is: `https://my.gitlab.server.com:8443/`.
+# Create the certificate file at: `/etc/gitlab-runner/certs/my.gitlab.server.com.crt`.
+

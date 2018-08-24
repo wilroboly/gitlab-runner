@@ -1,10 +1,10 @@
-concurrent = 1
+concurrent = 10
 check_interval = 0
 
 [[runners]]
-  name = "DockerRunner"
+  name = "DockerInDocker_01"
   url = "https://gitlab.bloodservices.ca/"
-  token = "9a87e7065df1d03df925c3788bda09"
+  token = "9d21d1682c420cf3c4e0ee19c83227"
   executor = "docker"
   [runners.docker]
     tls_verify = false
@@ -16,8 +16,57 @@ check_interval = 0
   [runners.cache]
 
 [[runners]]
-  name = "Shellrunner"
+  name = "DockerInDocker_02"
   url = "https://gitlab.bloodservices.ca/"
-  token = "5e0446d280a2235d2430320602381b"
-  executor = "shell"
+  token = "1967609916f23594bda5751e9ef6f8"
+  executor = "docker"
+  [runners.docker]
+    tls_verify = false
+    image = "docker:stable"
+    privileged = false
+    disable_cache = false
+    volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]
+    shm_size = 0
+  [runners.cache]
+
+[[runners]]
+  name = "DockerInDocker_03"
+  url = "https://gitlab.bloodservices.ca/"
+  token = "264727fefb29a2c33610ee2614f51e"
+  executor = "docker"
+  [runners.docker]
+    tls_verify = false
+    image = "docker:stable"
+    privileged = false
+    disable_cache = false
+    volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]
+    shm_size = 0
+  [runners.cache]
+
+[[runners]]
+  name = "DockerInDocker_05"
+  url = "https://gitlab.bloodservices.ca/"
+  token = "24d59c3724c8d5c169d58e5a853877"
+  executor = "docker"
+  [runners.docker]
+    tls_verify = false
+    image = "docker:stable"
+    privileged = false
+    disable_cache = false
+    volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]
+    shm_size = 0
+  [runners.cache]
+
+[[runners]]
+  name = "DockerInDocker"
+  url = "https://gitlab.bloodservices.ca/"
+  token = "625dde98963489fdad36a4c6b8cf0c"
+  executor = "docker"
+  [runners.docker]
+    tls_verify = false
+    image = "docker:stable"
+    privileged = false
+    disable_cache = false
+    volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]
+    shm_size = 0
   [runners.cache]
